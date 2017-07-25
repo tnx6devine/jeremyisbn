@@ -34,6 +34,7 @@ def run_program(user_isbn)
 end
 
 def figure_validity_for_isbn_13(user_isbn)
+	
 	isbn_number = user_isbn.split("") {
 		|s| s.to_i
 	}
@@ -51,10 +52,11 @@ def figure_validity_for_isbn_13(user_isbn)
 			if counter % 2 == 0
 				sum = sum + isbn_number[counter]
 			else 
-				sum = sum + isbn_number[counter] * 3	
+				sum = sum + isbn_number[counter] * 3
 			end
+			counter = counter + 1
 		end
-
+	end
 	leftover = sum % 10
 	check = 10 - leftover
 	if check == isbn_number[12] 
@@ -76,9 +78,6 @@ end
 	# puts "one position is #{one_position}"
 
 	#s = 9×1 + 7×3 + 8×1 + 0×3 + 3×1 + 0×3 + 6×1 + 4×3 + 0×1 + 6×3 + 1×1 + 5×3
-
-end
-
 
 
 def figure_validity(user_isbn)

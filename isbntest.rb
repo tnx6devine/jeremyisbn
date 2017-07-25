@@ -37,9 +37,16 @@ class TestISBN < Minitest::Test
 		assert_equal(true, string_length?(isbn_number))
 	end
 
-	def test_for_isbn_validity_for_13
-		isbn_number = "9781250123114"
-		assert_equal(true, figure_validity(isbn_number))
+		def test_for_isbn_invalidity_for_13_figits
+		isbn_number = "1234567890123"
+		assert_equal(false, figure_validity_for_isbn_13(isbn_number))
 	end
+
+	def test_for_isbn_validity_for_13_digits
+		isbn_number = "9781566199094"
+		assert_equal(true, figure_validity_for_isbn_13(isbn_number))
+	end
+
+
 
 end
